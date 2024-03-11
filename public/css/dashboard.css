@@ -1,0 +1,28 @@
+*{box-sizing: border-box;margin: 0;padding: 0;}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+  --primary-color: #3b8ff3;
+  --secondary-color: #b4245d;
+}
+body{font-family: "Poppins", sans-serif;background: #fff;}
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+.invalid-input{color: red;font-size: 14px;}
+.login-section.bg-grad-sharp {background: linear-gradient(to right, #fff 71%, var(--primary-color) 71%);}
+.login-section .card-body{padding: 40px 20px;}
+.login-section .login-account{font-size: 24px;line-height: 22px;font-weight: 500;margin-bottom: 35px;color: var(--primary-color);}
+.login-section .form-group{margin-bottom: 1rem;}
+.login-section .card-login {width: 380px;max-width: 90%;}
+.login-section .form-control{font-size: 14px;line-height: 22px;border-radius: 6px;}
+.login-section .form-control:focus{box-shadow: none;border-color: var(--primary-color);}
+.login-section .login-button{    width: 100%;background: var(--primary-color);color: white;font-size: 16px;line-height: 24px;margin-top: 18px;text-align: center;border-radius: 4px;font-weight: 400;}
+@media (max-width:576px) {
+  .login-section .card-body{padding: 35px 18px;}
+  .login-section .login-account{font-size: 22px;line-height: 28px;margin-bottom: 18px;}
+}
+.pass-eye-icon{position: absolute;right: 13px;top: 41px;color: gray;cursor: pointer;}

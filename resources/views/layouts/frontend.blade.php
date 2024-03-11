@@ -7,8 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- favicon -->
-    <link rel="icon" href="{{ asset('images/laravel.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/laravel.png') }}">
+    <link rel="icon" href="{{ asset('images/favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/favicon.png') }}">
 
     <title>{{ config('constants.SITE_TITLE') }}</title>
 
@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/metronic/plugins.bundle.css') }}">
     <link rel="stylesheet" href="{{ asset('css/metronic/style.bundle.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,15 +33,15 @@
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     
 </head>
-<body class="bg-gray-100 font-sans antialiased">
+<body class="antialiased">
     <div id="app-2">
 
         @include('layouts.navbar')
         
-        <div class="main flex flex-wrap justify-end mt-16">
+        <div class="main flex flex-wrap justify-end">
             
             <div class="content w-full">
-                <div class="container mx-auto p-4 sm:p-6">
+                <div class="container mx-auto">
 
                     @yield('content')
                     
