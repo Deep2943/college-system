@@ -1,29 +1,26 @@
 @auth
-<div class="bg-white px-4 sm:px-6 py-3 flex items-center justify-end h-16 fixed top-0 border-bottom left-0 right-0 z-50 top-bar">
+<div class="px-4 sm:px-6 py-3 h-16 top-bar">
     <div class="relative">
-            <div class="flex items-center cursor-pointer" id="opennavdropdown">
-                <img class="w-8 h-8 rounded-full mr-2" src="{{ asset('images/profile/' . auth()->user()->profile_picture) }}" alt="Avatar">
-                <p class="text-sm text-white font-semibold leading-none">{{ auth()->user()->name }}</p>
-                <svg class="w-4 h-4 stroke-current text-gray-200 ml-1 feather feather-chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        <button type="button" class="flex items-center cursor-pointer" id="opennavdropdown" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+            <img class="w-8 h-8 rounded-full mr-2" src="{{ asset('images/profile/' . auth()->user()->profile_picture) }}" alt="Avatar">
+            <p class="user-name">{{ auth()->user()->name }}</p>
+            <span class="svg-icon svg-icon-muted"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor"/>
+                </svg>
+            </span>
+        </button>
+        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
+            <div class="menu-item px-3">
+                <a href="{{ route('profile') }}" class="menu-link px-3">Profile</a>
             </div>
-            <div class="bg-blue-700 absolute top-0 right-0 mt-12 -mr-6 shadow rounded-bl rounded-br">
-                <div class="hidden h-24 w-48" id="navdropdown">
-                    <div class="px-8 py-4 border-t border-blue-800">
-                        <a href="{{ route('profile') }}" class="flex items-center pb-3 text-sm text-gray-200 font-semibold">
-                            <svg class="h-4 w-4 mr-2 fill-current text-gray-200" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-alt" class="svg-inline--fa fa-user-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 288c79.5 0 144-64.5 144-144S335.5 0 256 0 112 64.5 112 144s64.5 144 144 144zm128 32h-55.1c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16H128C57.3 320 0 377.3 0 448v16c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48v-16c0-70.7-57.3-128-128-128z"></path></svg>
-                            <span>Profile</span>
-                        </a>
-                        <form action="{{ route('logout') }}" method="POST" class="pb-2">
-                            @csrf
-                            <button class="flex items-center text-sm text-gray-200 font-semibold focus:outline-none" type="submit">
-                                <svg class="h-4 w-4 mr-2 fill-current text-gray-200" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sign-out-alt" class="svg-inline--fa fa-sign-out-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z"></path></svg>
-                                <span>{{ __('Logout') }}</span>
-                            </button>
-                        </form>
-                    </div>
-                </div>
+            <div class="menu-item px-3">
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="menu-link px-3 w-100">{{ __('Logout') }}</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
 @endauth
 @if (Route::has('login'))@endif

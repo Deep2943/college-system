@@ -638,14 +638,11 @@ $(document).ready(function() {
 
 	$(function() {
 		var current = window.location.href;
-
 		if (current != "") {
-			$(".nav-link").each(function() {
+			$(".menu-item .menu-link").each(function() {
 				var href = $(this).attr("href");
 				if (href == current) {
-					$(this)
-						.parent()
-						.addClass("active");
+					$(this).addClass("active");
 				}
 			});
 		}
@@ -783,9 +780,9 @@ $(document).ready(function() {
 		);
 	}
 
-	setTimeout(function()  {
-		$("#elastic_parent").elasticMenu();
-	}, 300);
+	// setTimeout(function()  {
+	// 	$("#elastic_parent").elasticMenu();
+	// }, 300);
 
 	if ($(document).find(".select2").length > 0) {
 		$(".select2").select2();

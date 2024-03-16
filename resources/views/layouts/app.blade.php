@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/metronic/plugins.bundle.css') }}">
     <link rel="stylesheet" href="{{ asset('css/metronic/style.bundle.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/flaticon-uicons/css/all/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome/css/all.min.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 
@@ -30,12 +32,12 @@
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     
 </head>
-<body class="bg-gray-100 antialiased">
+<body class="antialiased">
     <div id="app">
         @include('layouts.navbar')
         <div class="main flex flex-wrap justify-end mt-16">
             @include('layouts.sidebar')
-            <div class="w-full sm:w-5/6">
+            <div class="w-full sm:w-5/6 main-inner-content">
                 <div class="mx-auto">
                     @yield('content')
                 </div>
@@ -44,13 +46,8 @@
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
-    <script>
-        $(function() {
-            $( "#opennavdropdown" ).on( "click", function() {
-                $( "#navdropdown" ).toggleClass( "hidden" );
-            })
-        })
-    </script>
+    <script src="{{ asset('js/metronic/scripts.bundle.js') }}"></script>
+    <script src="{{ asset('js/metronic/plugins.bundle.js') }}"></script>
 
     @stack('scripts')
 

@@ -4,7 +4,7 @@
   --primary-color: #3b8ff3;
   --secondary-color: #b4245d;
 }
-body{font-family: "Poppins", sans-serif;background: #fff;}
+body{font-family: "Poppins", sans-serif;background: #f5f8fa;}
 .invalid-input{color: red;font-size: 14px;}
 /* .login-section.bg-grad-sharp {background: linear-gradient(to right, #fff 71%, var(--primary-color) 71%);}
 .login-section .card-body{padding: 40px 20px;}
@@ -58,3 +58,26 @@ body{font-family: "Poppins", sans-serif;background: #fff;}
   .login-page-section .form-items {padding: 0 25px;}
   .login-page-section .form-class{padding: 35px;}
 }
+
+
+/* New CSS  */
+.main-inner-content{padding: 15px;}
+.top-bar{background: #fff;position: fixed;top: 0;right: 0;left: 0;z-index: 50;display: flex;align-items: center;justify-content: end;box-shadow: 0 10px 30px 0 rgba(82,63,105,.05);}
+.top-bar .user-name{font-size: 14px;line-height: 22px;font-weight: 600;color: #212529;}
+.sidebar{position: fixed;z-index: 55;}
+.listing-add-btn{display: flex;align-items: center;}
+.listing-header{align-items: center !important;}
+.main-listing-page .bottom-content{display: flex;align-items: center;justify-content: space-between;margin-top:15px;}
+.main-listing-page .bottom-content .clear{display: none;}
+.main-listing-page .bottom{display:flex;align-items:center;justify-content:end;gap: 0 15px;}
+.main-listing-page .bottom .dt-length{display: flex;align-items: center;gap: 0 5px;}
+.main-listing-page .card-body{padding: 1rem 2.25rem;}
+.table td, .table th, .table tr{border-width: 1px !important;}
+.table th{background: #eee;font-weight: 600 !important;}
+.table th, .table td{padding: 8px !important;text-align: left;font-size: 13px;line-height: 22px;color: #000;}
+.main-listing-page .dt-scroll-body{border-bottom: 0 !important;}
+.sr-col{text-align: center !important;width: 75px !important;min-width: 75px !important;max-width: 75px !important;}
+.action-col{text-align: center !important;width: 105px !important;min-width: 105px !important;max-width: 105px !important;}
+.action-btn-group{display: flex;align-items: center;justify-content: center;gap: 10px;}
+.action-btn-group .action-btn .icon{display: flex;font-size: 16px;}
+.delete-btn-form{display: flex;}

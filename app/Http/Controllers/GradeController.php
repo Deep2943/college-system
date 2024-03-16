@@ -17,7 +17,8 @@ class GradeController extends Controller
     public function index()
     {
         $data['pageTitle'] = "Classes";
-        $classes = Grade::withCount('students')->latest()->paginate(10);
+        $data['i'] = 0;
+        $classes = Grade::withCount('students')->latest()->paginate(100);
 
         return view('backend.classes.index', compact('classes'), $data);
     }
