@@ -17,9 +17,10 @@ class TeacherController extends Controller
      */
     public function index()
     {
+        $data['pageTitle'] = "Teachers";
         $teachers = Teacher::with('user')->latest()->paginate(10);
 
-        return view('backend.teachers.index', compact('teachers'));
+        return view('backend.teachers.index', compact('teachers'), $data);
     }
 
     /**

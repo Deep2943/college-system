@@ -18,9 +18,10 @@ class ParentsController extends Controller
      */
     public function index()
     {
+        $data['pageTitle'] = "Parents";
         $parents = Parents::with(['user','children'])->latest()->paginate(10);
         
-        return view('backend.parents.index', compact('parents'));
+        return view('backend.parents.index', compact('parents'), $data);
     }
 
     /**

@@ -17,6 +17,7 @@ class AttendanceController extends Controller
      */
     public function index()
     {
+        $data['pageTitle'] = "Attendance";
         $months = Attendance::select('attendence_date')
                             ->orderBy('attendence_date')
                             ->get()
@@ -35,14 +36,14 @@ class AttendanceController extends Controller
                                      ->get()
                                      ->groupBy(['class_id','attendence_date']);
 
-                return view('backend.attendance.index', compact('attendances','months'));
+                return view('backend.attendance.index', compact('attendances','months'), $data);
 
             }
             
         }
         $attendances = [];
         
-        return view('backend.attendance.index', compact('attendances','months'));
+        return view('backend.attendance.index', compact('attendances','months'), $data);
     }
 
     /**

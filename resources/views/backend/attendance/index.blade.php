@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('pageTitle', $pageTitle)
 @section('content')
     <div class="create">
 

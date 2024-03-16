@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('pageTitle') | {{ config('constants.SITE_TITLE') }}</title>
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     

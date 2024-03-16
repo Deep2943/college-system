@@ -39,16 +39,10 @@
         @include('layouts.navbar')
         
         <div class="main flex flex-wrap justify-end">
-            
-            <div class="content w-full">
-                <div class="container mx-auto">
-
-                    @yield('content')
-                    
-                </div>
+            <div class="w-full">
+                @yield('content')
             </div>
         </div>
     </div>
-
 </body>
 </html>

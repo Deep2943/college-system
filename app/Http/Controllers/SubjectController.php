@@ -17,9 +17,10 @@ class SubjectController extends Controller
      */
     public function index()
     {
+        $data['pageTitle'] = "Subjects";
         $subjects = Subject::with('teacher')->latest()->paginate(10);
         
-        return view('backend.subjects.index', compact('subjects'));
+        return view('backend.subjects.index', compact('subjects'), $data);
     }
 
     /**

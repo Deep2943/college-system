@@ -32,32 +32,33 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $data['pageTitle'] = 'Dashboard';
         
         if ($user->hasRole('Admin')) {
-
+            
             $parents = Parents::latest()->get();
             $teachers = Teacher::latest()->get();
             $students = Student::latest()->get();
 
-            return view('home', compact('parents','teachers','students'));
+            return view('home', compact('parents','teachers','students'), $data);
 
         } elseif ($user->hasRole('Teacher')) {
 
             $teacher = Teacher::with(['user','subjects','classes','students'])->withCount('subjects','classes')->findOrFail($user->teacher->id);
 
-            return view('home', compact('teacher'));
+            return view('home', compact('teacher'), $data);
 
         } elseif ($user->hasRole('Parent')) {
             
             $parents = Parents::with(['children'])->withCount('children')->findOrFail($user->parent->id); 
 
-            return view('home', compact('parents'));
+            return view('home', compact('parents'), $data);
 
         } elseif ($user->hasRole('Student')) {
             
             $student = Student::with(['user','parent','class','attendances'])->findOrFail($user->student->id); 
 
-            return view('home', compact('student'));
+            return view('home', compact('student'), $data);
 
         } else {
             return 'NO ROLE ASSIGNED YET!';
