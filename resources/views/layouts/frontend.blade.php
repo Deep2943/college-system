@@ -35,9 +35,7 @@
 </head>
 <body class="antialiased">
     <div id="app-2">
-
         @include('layouts.navbar')
-        
         <div class="main flex flex-wrap justify-end">
             <div class="w-full">
                 @yield('content')

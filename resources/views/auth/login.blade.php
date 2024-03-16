@@ -52,7 +52,6 @@
           <path fill="#3b8ff3" fill-opacity="1" d="M0,96L48,101.3C96,107,192,117,288,117.3C384,117,480,107,576,90.7C672,75,768,53,864,48C960,43,1056,53,1152,80C1248,107,1344,149,1392,170.7L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
         </svg>
       </div>
-    
       <div class="container">
         <div class="login-page-items">
           <div class="login-items">
@@ -61,20 +60,18 @@
                 <div class="card-login mx-auto my-5 border-0  bg-transparents">
                     <div class="form-class">
                         <h3 class="login-title">Login To Your Account</h3>
-                    
                         <div class="body-form-info">
                             <form id="login" method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class=" form-group col-md-12 form-group ">
-                                    <label class="form-label" for="email">Email ID:</label>
-                                    <input id="email" class="form-input form-control " autocomplete="off" type="email" placeholder="Email ID" name="email" value="">
+                                    <label class="form-label" for="email">Email:</label>
+                                    <input id="email" class="form-input form-control" type="email" placeholder="Email" name="email" autofocus>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="form-label" for="password">Password:</label>
-                                    <input id="password" class="form-input form-control" autocomplete="new-password" placeholder="Password" type="password" name="password" value="">
+                                    <input id="password" class="form-input form-control" autocomplete="new-password" placeholder="Password" type="password" name="password">
                                 </div>
-                                
-                                <div class="form-group col-md-12">
+                                <div class="col-md-12">
                                     <button type="submit" class="btn login-button btn-block font-weight-bold">Login</button>
                                 </div>
                             </form>
@@ -97,8 +94,7 @@
         </div>
       </div>
     </section>
-  
-  </main>
+</main>
 
 {{-- <div class="w-full max-w-xs mx-auto">
     <form method="POST" action="{{ route('login') }}" class="bg-white shadow rounded px-8 pt-6 pb-8 mb-4">
