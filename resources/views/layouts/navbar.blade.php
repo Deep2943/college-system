@@ -1,6 +1,6 @@
 @auth
 <div class="px-4 sm:px-6 py-3 h-16 top-bar">
-    <div class="relative">
+    <div class="relative w-100 d-flex justify-content-end">
         <button type="button" class="flex items-center cursor-pointer" id="opennavdropdown" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
             <img class="w-8 h-8 rounded-full mr-2" src="{{ asset('images/profile/' . auth()->user()->profile_picture) }}" alt="Avatar">
             <p class="user-name">{{ auth()->user()->name }}</p>

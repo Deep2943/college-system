@@ -1,15 +1,17 @@
 @extends('layouts.app')
 @section('pageTitle', $pageTitle)
 @section('content')
+
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.min.js">
 <script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <div class="main-listing-page">
     <div class="card">
-        <div class="card-header listing-header pt-4 border-0">
-            <span class="card-label fw-bolder fs-2">Classes<span class="text-gray-600 fs-5">({{ sprintf(count($classes)) }})</span></span>
-            <a href="{{ route('classes.create') }}" class="btn btn-primary listing-add-btn">
+        <div class="card-header listing-header pt-5 border-0">
+            <span class="card-label fw-bolder fs-2">Classes<span class="text-gray-900 fs-5">({{ sprintf(count($classes)) }})</span></span>
+            <a href="{{ route('classes.create') }}" class="btn btn-primary btn-sm listing-add-btn">
                 <span class="svg-icon svg-icon-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"> <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" /> <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" /> </svg></span>
                 Add Class
             </a>
@@ -63,21 +65,21 @@
     </div>
 </div>
 
-    <script>
-        $(document).ready(function() {
-            let table = new DataTable('#classes-table', {
-                bProcessing: true,
-                iDisplayLength: 10,
-                searching: false,
-                bDestroy: true,
-                fixedHeader: {
-                    header: true,
-                },
-                sScrollY: "calc(100vh - 280px)",
-                sScrollX: "100%",
-                dom: 'rt<"bottom-content" i<"bottom"flp><"clear">>',
-                ordering: false
-            });
-        } );
-    </script>
+<script>
+    $(document).ready(function() {
+        let table = new DataTable('#classes-table', {
+            bProcessing: true,
+            iDisplayLength: 10,
+            // searching: false,
+            bDestroy: true,
+            fixedHeader: {
+                header: true,
+            },
+            sScrollY: "calc(100vh - 310px)",
+            sScrollX: "100%",
+            dom: 'frt<"bottom-content" i<"bottom"lp><"clear">>',
+            ordering: false
+        });
+    } );
+</script>
 @endsection

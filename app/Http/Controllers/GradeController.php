@@ -30,9 +30,10 @@ class GradeController extends Controller
      */
     public function create()
     {
+        $data['pageTitle'] = "Add Class";
         $teachers = Teacher::latest()->get();
         
-        return view('backend.classes.create', compact('teachers'));
+        return view('backend.classes.create', compact('teachers'), $data);
     }
 
     /**
@@ -79,10 +80,11 @@ class GradeController extends Controller
      */
     public function edit($id)
     {
+        $data['pageTitle'] = "Edit Class";
         $teachers = Teacher::latest()->get();
         $class = Grade::findOrFail($id);
 
-        return view('backend.classes.edit', compact('class','teachers'));
+        return view('backend.classes.edit', compact('class','teachers'), $data);
     }
 
     /**
