@@ -1,73 +1,73 @@
 @extends('layouts.app')
-
+@section('pageTitle', $pageTitle)
 @section('content')
-    <div class="roles">
-
-        <div class="flex items-center justify-between mb-6">
-            <div>
-                <h2 class="text-gray-700 uppercase font-bold">Assign Subject</h2>
-            </div>
-            <div class="flex flex-wrap items-center">
-                <a href="{{ route('classes.index') }}" class="bg-gray-200 text-gray-700 text-sm uppercase py-2 px-4 flex items-center rounded">
-                    <svg class="w-3 h-3 fill-current" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-left" class="svg-inline--fa fa-long-arrow-alt-left fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"></path></svg>
-                    <span class="ml-2 text-xs font-semibold">Back</span>
-                </a>
-            </div>
+<div class="add-page">
+    <div class="card">
+        <div class="card-header listing-header pt-5 border-0">
+            <span class="card-label fw-bolder fs-2">{{ $pageTitle }}</span>
         </div>
-
-        <div class="table w-full mt-8 bg-white rounded">
-            <form action="{{ route('store.class.assign.subject',$classid) }}" method="POST" class="w-full max-w-lg px-6 py-12">
-                @csrf
-                <div class="md:flex mb-6">
-                    <div class="md:w-1/3">
-                        <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                            Assign Subject
-                        </label>
-                    </div>
-                    <div class="md:w-2/3 block text-gray-600 font-bold">
-                        @foreach ($subjects as $subject)
-                            <div class="flex items-center">
-                                <label>
-                                    <input name="selectedsubjects[]" class="mr-2 leading-tight" type="checkbox" value="{{ $subject->id }}"
-                                        @foreach ($assigned->subjects as $item)
-                                            {{ ($item->id === $subject->id) ? 'checked' : '' }}
-                                        @endforeach
-                                    >
-                                    <span class="text-sm">
-                                        {{ $subject->name }}
-                                    </span>
-                                </label>
+        <div class="card-body">
+            <form action="{{ route('store.class.assign.subject',$classid) }}" method="POST">
+            @csrf
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="fw-bold fs-6 mb-2">Subjects</label>
+                            <div class="checkbox-list">
+                                @foreach ($subjects as $subject)
+                                    <div class="pb-4 custom-checkbox border-bottom pt-4">
+                                        <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                                            <span class="form-check-label text-gray-700 fs-6 fw-bold ms-0 me-2">{{ $subject->name }}</span>
+                                            <input class="form-check-input" name="selectedsubjects[]" type="checkbox" value="{{ $subject->id }}"
+                                                @foreach ($assigned->subjects as $item)
+                                                    {{ ($item->id === $subject->id) ? 'checked' : '' }}
+                                                @endforeach />
+                                        </label>
+                                    </div>
+                                @endforeach
                             </div>
-                        @endforeach
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label class="fw-bold fs-6 mb-2">Students</label>
+                        <div class="table-responsive">
+                            <table class="table table-bordered border-bottom datatable-new">
+                                <thead>
+                                    <tr>
+                                        <th class="sr-col">Sr. No.</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Parent</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (count($assigned->students) > 0)
+                                        @foreach ($assigned->students as $student)
+                                        <tr>
+                                            <td class="sr-col">{{ ++$i }}</td>
+                                            <td>{{ $student->user->name }}</td>
+                                            <td>{{ $student->user->email }}</td>
+                                            <td>{{ $student->phone }}</td>
+                                            <td>{{ $student->parent->user->name }}</td>
+                                        </tr>
+                                        @endforeach
+                                    @else
+                                        <tr><td colspan="5" class="no-record">No Record Found</td></tr>
+                                    @endif
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="buttons-div">
+                            <button type="submit" title="Assign Subject" class="btn btn-primary">Assign Subject</button>
+                            <a href="{{ route('classes.index') }}" title="Back" class="btn btn-secondary">Back</a>
+                        </div>
                     </div>
                 </div>
-                <div class="md:flex md:items-center">
-                    <div class="md:w-1/3"></div>
-                    <div class="md:w-2/3">
-                        <button class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
-                            Assign Subject
-                        </button>
-                    </div>
-                </div>
-            </form>        
-        </div>
-
-        <div class="w-full py-12">
-            <h2 class="text-gray-700 uppercase font-bold my-2">Students</h2>
-            <div class="flex items-center bg-gray-200">
-                <div class="w-1/4 text-left text-gray-600 py-2 px-4 font-semibold">Name</div>
-                <div class="w-1/4 text-left text-gray-600 py-2 px-4 font-semibold">Email</div>
-                <div class="w-1/4 text-right text-gray-600 py-2 px-4 font-semibold">Phone</div>
-                <div class="w-1/4 text-right text-gray-600 py-2 px-4 font-semibold">Parent</div>
-            </div>
-            @foreach ($assigned->students as $student)
-                <div class="flex items-center justify-between border border-gray-200 mb-px">
-                    <div class="w-1/4 text-left text-gray-600 py-2 px-4 font-medium">{{ $student->user->name }}</div>
-                    <div class="w-1/4 text-left text-gray-600 py-2 px-4 font-medium">{{ $student->user->email }}</div>
-                    <div class="w-1/4 text-right text-gray-600 py-2 px-4 font-medium">{{ $student->phone }}</div>
-                    <div class="w-1/4 text-right text-gray-600 py-2 px-4 font-medium">{{ $student->parent->user->name }}</div>
-                </div>
-            @endforeach
+            </form>  
         </div>
     </div>
+</div>
 @endsection
