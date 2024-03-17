@@ -18,6 +18,7 @@ class TeacherController extends Controller
     public function index()
     {
         $data['pageTitle'] = "Teachers";
+        $data['i'] = 0;
         $teachers = Teacher::with('user')->latest()->paginate(10);
 
         return view('backend.teachers.index', compact('teachers'), $data);
@@ -30,7 +31,8 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        return view('backend.teachers.create');
+        $data['pageTitle'] = "Add Teacher";
+        return view('backend.teachers.create', $data);
     }
 
     /**
@@ -100,9 +102,10 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
+        $data['pageTitle'] = "Edit Teacher";
         $teacher = Teacher::with('user')->findOrFail($teacher->id);
 
-        return view('backend.teachers.edit', compact('teacher'));
+        return view('backend.teachers.edit', compact('teacher'), $data);
     }
 
     /**

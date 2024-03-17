@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/fontawesome/css/all.min.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +31,8 @@
     <script src="{{ asset('js/validator-additional-methods.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ asset('js/moments.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
     
 </head>
 <body class="antialiased">

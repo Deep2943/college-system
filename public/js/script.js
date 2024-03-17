@@ -230,7 +230,7 @@ if (typeof jQuery.validator !== "undefined") {
 			var re = new RegExp(regexp);
 			return this.optional(element) || re.test(value);
 		},
-		"Please Enter Valid Email Address."
+		"Please Enter Valid Email"
 	);
 
 	$.validator.addMethod(
