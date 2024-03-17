@@ -18,6 +18,7 @@ class SubjectController extends Controller
     public function index()
     {
         $data['pageTitle'] = "Subjects";
+        $data['i'] = 0;
         $subjects = Subject::with('teacher')->latest()->paginate(10);
         
         return view('backend.subjects.index', compact('subjects'), $data);
@@ -30,9 +31,10 @@ class SubjectController extends Controller
      */
     public function create()
     {
+        $data['pageTitle'] = "Add Subject";
         $teachers = Teacher::latest()->get();
 
-        return view('backend.subjects.create', compact('teachers'));
+        return view('backend.subjects.create', compact('teachers'), $data);
     }
 
     /**
@@ -80,9 +82,10 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
+        $data['pageTitle'] = "Edit Subject";
         $teachers = Teacher::latest()->get();
 
-        return view('backend.subjects.edit', compact('subject','teachers'));
+        return view('backend.subjects.edit', compact('subject','teachers'), $data);
     }
 
     /**
