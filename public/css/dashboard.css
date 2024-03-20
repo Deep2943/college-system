@@ -61,7 +61,7 @@ body{font-family: "Poppins", sans-serif;background: #f5f8fa;}
 .main-listing-page .card-body{padding: 1rem 2.25rem;}
 .table td, .table th, .table tr{border-width: 1px !important;}
 .table th{background: #eee;font-weight: 600 !important;}
-.table th, .table td{padding: 8px !important;text-align: left !important;font-size: 13px;line-height: 22px;color: #000;}
+.table th, .table td{padding: 8px !important;text-align: left !important;font-size: 13px;line-height: 22px;color: #000;vertical-align: middle;}
 .main-listing-page .dt-scroll-body{border-bottom: 0 !important;}
 .table .sr-col{text-align: center !important;width: 75px !important;min-width: 75px !important;max-width: 75px !important;}
 .table .action-col{text-align: center !important;width: 105px !important;min-width: 105px !important;max-width: 105px !important;}
