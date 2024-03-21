@@ -77,6 +77,7 @@ body{font-family: "Poppins", sans-serif;background: #f5f8fa;}
 .table .dt-empty{text-align: center !important;}
 .checkbox-list .custom-checkbox:nth-last-child(1){border-bottom: 0 !important;}
 .table .no-record{text-align: center !important;}
+.dt-scroll-body.no-record{height: auto !important;min-height: auto !important;}
 @media (max-width:768px) {
   .main-listing-page .bottom-content{flex-direction: column;gap: 10px;align-items: flex-start;}
   .main-listing-page .bottom{flex-direction: column;gap: 10px;align-items: flex-start;}
