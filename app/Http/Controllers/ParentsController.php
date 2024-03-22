@@ -32,7 +32,8 @@ class ParentsController extends Controller
      */
     public function create()
     {
-        return view('backend.parents.create');
+        $data['pageTitle'] = "Add Parent";
+        return view('backend.parents.create', $data);
     }
 
     /**
@@ -100,9 +101,10 @@ class ParentsController extends Controller
      */
     public function edit($id)
     {
+        $data['pageTitle'] = "Edit Parent";
         $parent = Parents::with('user')->findOrFail($id); 
 
-        return view('backend.parents.edit', compact('parent'));
+        return view('backend.parents.edit', compact('parent'), $data);
     }
 
     /**

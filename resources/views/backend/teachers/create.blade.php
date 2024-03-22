@@ -25,7 +25,8 @@
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label class="fw-bold fs-6 mb-2">Password<span class="text-danger">*</span></label>
-                            <input type="password" name="password" autocomplete="cc-number" class="form-control form-control-solid" placeholder="Password">
+                            <input type="password" name="password" autocomplete="cc-number" minlength="8" class="form-control form-control-solid" placeholder="Password">
+                            <div class="form-text">Your Password Must Be Minimum 8 Characters Long</div>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -107,7 +108,7 @@
         messages: {
             name: "Please Enter Name",
             email: "Please Enter Email",
-            password: "Please Select Password",
+            password: "Please Enter Password",
             phone: "Please Enter Phone",
             gender: "Please Select Gender",
             dateofbirth: "Please Select Date of Birth",

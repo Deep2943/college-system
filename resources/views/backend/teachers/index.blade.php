@@ -37,7 +37,7 @@
                             <td>{{ $teacher->user->email }}</td>
                             <td>
                                 @foreach ($teacher->subjects as $subject)
-                                    <span class="badge badge-primary">{{ $subject->subject_code }}</span>
+                                    <span class="badge badge-primary">{{ $subject->name }}</span>
                                 @endforeach
                             </td>
                             <td>{{ $teacher->phone }}</td>

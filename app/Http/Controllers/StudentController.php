@@ -21,6 +21,7 @@ class StudentController extends Controller
     public function index()
     {
         $data['pageTitle'] = "Students";
+        $data['i'] = "0";
         $students = Student::with('class')->latest()->paginate(10);
 
         return view('backend.students.index', compact('students'), $data);
