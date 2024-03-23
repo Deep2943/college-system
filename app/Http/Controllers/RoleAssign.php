@@ -13,6 +13,7 @@ class RoleAssign extends Controller
     public function index()
     {
         $data['pageTitle'] = "Assign Role";
+        $data['i'] = "0";
         $users = User::with('roles')->latest()->paginate(10);
 
         return view('backend.assignrole.index', compact('users'), $data);
@@ -20,9 +21,10 @@ class RoleAssign extends Controller
 
     public function create()
     {
+        $data['pageTitle'] = "Add User";
         $roles = Role::latest()->get();
         
-        return view('backend.assignrole.create', compact('roles'));
+        return view('backend.assignrole.create', compact('roles'), $data);
     }
 
     public function store(Request $request)
@@ -46,10 +48,11 @@ class RoleAssign extends Controller
 
     public function edit($id)
     {
+        $data['pageTitle'] = "Edit User";
         $user = User::with('roles')->findOrFail($id);
         $roles = Role::latest()->get();
         
-        return view('backend.assignrole.edit', compact('user','roles'));
+        return view('backend.assignrole.edit', compact('user','roles'), $data);
     }
 
     public function update(Request $request, $id)

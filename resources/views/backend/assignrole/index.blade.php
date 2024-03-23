@@ -1,44 +1,74 @@
 @extends('layouts.app')
 @section('pageTitle', $pageTitle)
 @section('content')
-    <div class="roles-permissions">
-        <div class="flex items-center justify-between mb-6">
-            <div>
-                <h2 class="text-gray-700 uppercase font-bold">Assign Role</h2>
-            </div>
-            <div class="flex flex-wrap items-center">
-                <a href="{{ route('assignrole.create') }}" class="bg-gray-200 text-gray-700 text-sm uppercase py-2 px-4 flex items-center rounded">
-                    <svg class="w-3 h-3 fill-current" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
-                    <span class="ml-2 text-xs font-semibold">User</span>
-                </a>
-            </div>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.min.js">
+<script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<div class="main-listing-page">
+    <div class="card">
+        <div class="card-header listing-header pt-5 border-0">
+            <span class="card-label fw-bolder fs-2">{{ $pageTitle }}<span class="text-gray-900 fs-5">({{ sprintf(count($users)) }})</span></span>
+            <a href="{{ route('assignrole.create') }}" class="btn btn-primary btn-sm listing-add-btn">
+                <span class="svg-icon svg-icon-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"> <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" /> <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" /> </svg></span>
+                Add User
+            </a>
         </div>
-        <div class="mt-8 bg-white rounded border-b-4 border-gray-300">
-            <div class="flex flex-wrap items-center uppercase text-sm font-semibold bg-gray-300 text-gray-600 rounded-tl rounded-tr">
-                <div class="w-3/12 px-4 py-3">Name</div>
-                <div class="w-5/12 px-4 py-3">Email</div>
-                <div class="w-2/12 px-4 py-3">Role</div>
-                <div class="w-2/12 px-4 py-3 text-right">Assign</div>
-            </div>
-            @foreach ($users as $user)
-                <div class="flex flex-wrap items-center text-gray-700 border-t-2 border-l-4 border-r-4 border-gray-300">
-                    <div class="w-3/12 px-4 py-3 text-sm font-semibold text-gray-600 tracking-tight">{{ $user->name }}</div>
-                    <div class="w-5/12 px-4 py-3 text-sm font-semibold text-gray-600 tracking-tight">{{ $user->email }}</div>
-                    <div class="w-2/12 px-4 py-3 flex flex-wrap">
-                        @foreach ($user->roles as $role)
-                            <span class="bg-gray-200 text-xs font-semibold text-gray-600 tracking-tight px-3 py-1 border rounded-full">{{ $role->name }}</span>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered datatable-new" id="assign-role-table">
+                    <thead>
+                        <tr>
+                            <th class="sr-col">Sr. No.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th class="action-col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user)
+                        <tr>
+                            <td class="sr-col">{{ ++$i }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>
+                                @foreach ($user->roles as $role)
+                                    <span class="badge badge-light-info fs-7">{{ $role->name }}</span>
+                                @endforeach
+                            </td>
+                            <td class="action-col">
+                                <div class="action-btn-group">
+                                    <a href="{{ route('assignrole.edit',$user->id) }}" class="action-btn edit-btn">
+                                        <i class="fi fi-rr-pencil icon"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
                         @endforeach
-                    </div>
-                    <div class="w-2/12 flex justify-end px-3">
-                        <a href="{{ route('assignrole.edit',$user->id) }}">
-                            <svg class="h-6 w-6 fill-current text-gray-600" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen-square" class="svg-inline--fa fa-pen-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z"></path></svg>
-                        </a>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-        <div class="mt-8">
-            {{ $users->links() }}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        let table = new DataTable('#assign-role-table', {
+            bProcessing: true,
+            iDisplayLength: 10,
+            bDestroy: true,
+            fixedHeader: {
+                header: true,
+            },
+            sScrollY: "calc(100vh - 310px)",
+            sScrollX: "100%",
+            dom: 'frt<"bottom-content" i<"bottom"lp><"clear">>',
+            ordering: false
+        });
+    } );
+</script>
 @endsection

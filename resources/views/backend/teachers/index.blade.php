@@ -24,7 +24,7 @@
                             <th class="sr-col">Sr. No.</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Subject Code</th>
+                            <th>Subject Name</th>
                             <th>Phone</th>
                             <th class="action-col">Actions</th>
                         </tr>

@@ -224,14 +224,14 @@ if (typeof jQuery.validator !== "undefined") {
 		}
 	});
 
-	$.validator.addMethod(
-		"email_regex",
-		function(value, element, regexp) {
-			var re = new RegExp(regexp);
-			return this.optional(element) || re.test(value);
-		},
-		"Please Enter Valid Email"
-	);
+	$.validator.addMethod("email_regex",function(value, element, regexp) {
+		var re = new RegExp(/^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,6}\b$/i);
+		return this.optional(element) || re.test($.trim(value));
+	},function(params, element) {
+		var getMessage = ( ( $(element).attr("placeholder") != "" && $(element).attr("placeholder") != null ) ? $(element).attr("placeholder").replace("*", "") : ( ( $(element).attr("field-name") != "" && $(element).attr("field-name") != null ) ? $(element).attr("field-name").replace("*", "") : "Email" ) ) + "."
+		var message = getMessage.replace('enter', '').replace('your', '').replace('Enter', '').replace('Your', '') ;
+		return "Please Enter Valid " + ( message );
+	});
 
 	$.validator.addMethod(
 		"noSpace",
