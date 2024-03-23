@@ -1,62 +1,46 @@
 @extends('layouts.app')
-
+@section('pageTitle', $pageTitle)
 @section('content')
     <div class="profile">
-        <div class="sm:flex sm:items-center sm:justify-between mb-6">
-            <div>
-                <h2 class="text-gray-700 uppercase font-bold">Profile</h2>
-            </div>
-            <div class="flex flex-wrap items-center">
-                <a href="{{ route('profile.edit') }}" class="bg-gray-200 text-gray-700 text-sm uppercase py-2 px-4 flex items-center rounded">
-                    <svg class="w-3 h-3 fill-current" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
-                    <span class="ml-2 text-xs font-semibold">Edit Profile</span>
-                </a>
-                <a href="{{ route('profile.change.password') }}" class="bg-gray-200 text-gray-700 text-sm uppercase ml-2 py-2 px-4 flex items-center rounded">
-                    <svg class="w-3 h-3 fill-current" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
-                    <span class="ml-2 text-xs font-semibold">Change Password</span>
-                </a>
-            </div>
-        </div>
-        <div class="mt-8 bg-white rounded">
-            <div class="w-full max-w-2xl mx-auto px-6 py-12 flex justify-between">
-                <div>
-                    <div class="md:flex md:items-center mb-4">
-                        <div class="md:w-1/3">
-                            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                                Name : 
-                            </label>
-                        </div>
-                        <div class="md:w-2/3">
-                            <span class="block text-gray-600 font-bold">{{ auth()->user()->name }}</span>
-                        </div>
-                    </div>
-                    <div class="md:flex md:items-center mb-4">
-                        <div class="md:w-1/3">
-                            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                                Email :
-                            </label>
-                        </div>
-                        <div class="md:w-2/3">
-                            <span class="text-gray-600 font-bold">{{ auth()->user()->email }}</span>
-                        </div>
-                    </div>
-                    <div class="md:flex md:items-center mb-4">
-                        <div class="md:w-1/3">
-                            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                                Role :
-                            </label>
-                        </div>
-                        <div class="md:w-2/3">
-                            <span class="text-gray-600 font-bold">{{ auth()->user()->roles[0]->name ?? '' }}</span>
-                        </div>
-                    </div>
-                </div>        
-                <div>
+        <div class="card">
+            <div class="card-body pt-5 pb-0">
+                <div class="d-flex mb-5 justify-content-between">
+                    <span class="card-label fw-bolder fs-2">Profile</span>
                     <div>
-                        <img class="w-20 h-20 sm:w-32 sm:h-32 rounded" src="{{ asset('images/profile/' . auth()->user()->profile_picture) }}" alt="avatar">    
-                    </div>        
-                </div>        
-            </div>        
+                        <a href="{{ route('profile.edit') }}" class="btn btn-sm btn-primary me-2">Edit Profile</a>
+                        <a href="{{ route('profile.change.password') }}" class="btn btn-sm btn-danger me-2">Change Password</a>
+                    </div>
+                </div>
+                <div class="pdf-content pb-5">
+                    <div class="d-flex flex-wrap flex-sm-nowrap mb-3 align-items-center">
+                        <div class="me-7 mb-4">
+                            <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
+                                <img src="{{ asset('images/profile/' . auth()->user()->profile_picture) }}" alt="image" class="object-contain">
+                            </div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+                                <div class="d-flex flex-column">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="text-gray-900 fs-2 fw-bolder me-1">{{ auth()->user()->name }}</div>
+                                        <div class="btn btn-sm btn-light-primary fw-bolder ms-2 fs-7 py-1 px-3">{{ auth()->user()->roles[0]->name ?? '' }}</div>
+                                    </div>
+                                    <div class="d-flex flex-wrap fw-bold fs-6 mb-md-4 pe-2 flex-column flex-md-row">
+                                        <a href="mailto:{{ auth()->user()->email }}" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
+                                        <!--begin::Svg Icon | path: icons/duotune/communication/com011.svg-->
+                                        <span class="svg-icon svg-icon-4 me-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path opacity="0.3" d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19Z" fill="black"></path>
+                                                <path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z" fill="black"></path>
+                                            </svg>
+                                        </span>{{ auth()->user()->email }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

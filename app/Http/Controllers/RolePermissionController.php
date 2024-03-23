@@ -14,6 +14,7 @@ class RolePermissionController extends Controller
     public function roles()
     {
         $data['pageTitle'] = "Roles & Permissions";
+        $data['i'] = "0";
         $roles = Role::with('permissions')->get();
 
         return view('backend.roles.index', compact('roles'), $data);

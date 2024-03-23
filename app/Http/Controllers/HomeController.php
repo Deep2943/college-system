@@ -71,7 +71,8 @@ class HomeController extends Controller
      */
     public function profile() 
     {
-        return view('profile.index');
+        $data['pageTitle'] = "Profile";
+        return view('profile.index', $data);
     }
 
     public function profileEdit() 
