@@ -22,9 +22,10 @@ class RolePermissionController extends Controller
 
     public function createRole()
     {
+        $data['pageTitle'] = "Add Role";
         $permissions = Permission::latest()->get();
 
-        return view('backend.roles.create', compact('permissions'));
+        return view('backend.roles.create', compact('permissions'), $data);
     }
 
     public function storeRole(Request $request)
@@ -42,10 +43,11 @@ class RolePermissionController extends Controller
 
     public function editRole($id)
     {
+        $data['pageTitle'] = "Edit Role";
         $role = Role::with('permissions')->find($id);
         $permissions = Permission::latest()->get();
 
-        return view('backend.roles.edit', compact('role','permissions'));
+        return view('backend.roles.edit', compact('role','permissions'), $data);
     }
 
     public function updateRole(Request $request, $id)
@@ -66,10 +68,11 @@ class RolePermissionController extends Controller
      */
     public function createPermission() 
     {
+        $data['pageTitle'] = "Add Permission";
         $roles = Role::latest()->get();
         $permissions = Permission::latest()->get();
 
-        return view('backend.permissions.create', compact('roles','permissions'));
+        return view('backend.permissions.create', compact('roles','permissions'), $data);
     }
 
     public function storePermission(Request $request)
@@ -89,10 +92,11 @@ class RolePermissionController extends Controller
 
     public function editPermission($id)
     {
+        $data['pageTitle'] = "Edit Permission";
         $permission = Permission::with('roles')->find($id);
         $roles = Role::latest()->get();
 
-        return view('backend.permissions.edit', compact('roles','permission'));
+        return view('backend.permissions.edit', compact('roles','permission') , $data);
     }
 
     public function updatePermission(Request $request, $id)
