@@ -34,10 +34,11 @@ class StudentController extends Controller
      */
     public function create()
     {
+        $data['pageTitle'] = "Add Student";
         $classes = Grade::latest()->get();
         $parents = Parents::with('user')->latest()->get();
         
-        return view('backend.students.create', compact('classes','parents'));
+        return view('backend.students.create', compact('classes','parents'), $data);
     }
 
     /**
@@ -108,9 +109,11 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
+        $data['pageTitle'] = $student->user->name ." - Student";
+        $data['i'] = '0';
         $class = Grade::with('subjects')->where('id', $student->class_id)->first();
         
-        return view('backend.students.show', compact('class','student'));
+        return view('backend.students.show', compact('class','student'), $data);
     }
 
     /**
@@ -121,10 +124,11 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
+        $data['pageTitle'] = "Edit Student";
         $classes = Grade::latest()->get();
         $parents = Parents::with('user')->latest()->get();
 
-        return view('backend.students.edit', compact('classes','parents','student'));
+        return view('backend.students.edit', compact('classes','parents','student'), $data);
     }
 
     /**
