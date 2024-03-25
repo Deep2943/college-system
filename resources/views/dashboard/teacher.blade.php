@@ -1,52 +1,83 @@
-<div class="w-full block mt-8">
-    <div class="flex flex-wrap sm:flex-no-wrap justify-between">
-        <div class="w-full bg-gray-200 text-center border border-gray-300 px-8 py-6 rounded">
-            <h3 class="text-gray-700 uppercase font-bold">
-                <span class="text-4xl">{{ sprintf("%02d", $teacher->classes_count) }}</span>
-                <span class="leading-tight">Classes</span>
-            </h3>
+<div class="w-full block mt-3 mb-8">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card bg-dark">
+                <div class="card-body d-flex align-items-center justify-content-center flex-column gap-3">
+                    <h4 class="text-gray-100 fw-bolder fs-1">{{ sprintf("%02d", $teacher->classes_count) }}</h4>
+                    <h5 class="fw-bold text-gray-100 fs-2">Classes</h5>
+                </div>
+            </div>
         </div>
-        <div class="w-full bg-gray-200 text-center border border-gray-300 px-8 py-6 mx-0 sm:mx-6 my-4 sm:my-0 rounded">
-            <h3 class="text-gray-700 uppercase font-bold">
-                <span class="text-4xl">{{ sprintf("%02d", $teacher->subjects_count) }}</span>
-                <span class="leading-tight">Subjects</span>
-            </h3>
+
+        <div class="col-lg-4">
+            <div class="card bg-dark">
+                <div class="card-body d-flex align-items-center justify-content-center flex-column gap-3">
+                    <h4 class="text-gray-100 fw-bolder fs-1">{{ sprintf("%02d", $teacher->subjects_count) }}</h4>
+                    <h5 class="fw-bold text-gray-100 fs-2">Subjects</h5>
+                </div>
+            </div>
         </div>
-        <div class="w-full bg-gray-200 text-center border border-gray-300 px-8 py-6 rounded">
-            <h3 class="text-gray-700 uppercase font-bold">
-                <span class="text-4xl">{{ ($teacher->students[0]->students_count) ?? 0 }}</span>
-                <span class="leading-tight">Students</span>
-            </h3>
+
+        <div class="col-lg-4">
+            <div class="card bg-dark">
+                <div class="card-body d-flex align-items-center justify-content-center flex-column gap-3">
+                    <h4 class="text-gray-100 fw-bolder fs-1">{{ ($teacher->students[0]->students_count) ?? 0 }}</h4>
+                    <h5 class="fw-bold text-gray-100 fs-2">Students</h5>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<hr>
 <div class="w-full block mt-8">
     <div class="flex flex-wrap sm:flex-no-wrap justify-between">
-        <div class="w-full sm:w-1/2 mr-2 mb-6">
-            <h3 class="text-gray-700 uppercase font-bold mb-2">Class List</h3>
-            <div class="flex flex-wrap items-center">
-                @foreach ($teacher->classes as $class)
-                    <div class="w-full sm:w-1/2 text-center border border-gray-200 rounded">
-                        <div class="text-gray-800 uppercase font-semibold px-4 py-4 mb-2">{{ $class->class_name }}</div>
-                        <a href="{{ route('teacher.attendance.create',$class->id) }}" class="bg-gray-200 inline-block mb-4 text-xs text-gray-600 uppercase font-semibold px-4 py-2 border border-gray-200 rounded">Attendence</a>
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="text-gray-900 fw-bolder fs-2 mb-5">Class List</h4>
+            </div>
+            @foreach ($teacher->classes as $class)
+            <div class="col-lg-4">
+                <div class="card mb-5 shadow">
+                    <div class="card-body d-flex align-items-center justify-content-center flex-column gap-3">
+                        <h4 class="text-gray-900 fw-bolder fs-4 text-center">{{ $class->class_name }}</h4>
+                        <a href="{{ route('teacher.attendance.create',$class->id) }}" class="btn btn-sm btn-primary">Attendence</a>
                     </div>
-                @endforeach
-            </div>
-        </div>
-        <div class="w-full sm:w-1/2 ml-2 mb-6">
-            <h3 class="text-gray-700 uppercase font-bold mb-2">Subject List</h3>
-            <div class="flex items-center bg-gray-200 rounded-tl rounded-tr">
-                <div class="w-1/3 text-left text-gray-600 py-2 px-4 font-semibold">Code</div>
-                <div class="w-1/3 text-left text-gray-600 py-2 px-4 font-semibold">Subject</div>
-                <div class="w-1/3 text-right text-gray-600 py-2 px-4 font-semibold">Teacher</div>
-            </div>
-            @foreach ($teacher->subjects as $subject)
-                <div class="flex items-center justify-between border border-gray-200">
-                    <div class="w-1/3 text-left text-gray-600 py-2 px-4 font-medium">{{ $subject->subject_code }}</div>
-                    <div class="w-1/3 text-left text-gray-600 py-2 px-4 font-medium">{{ $subject->name }}</div>
-                    <div class="w-1/3 text-right text-gray-600 py-2 px-4 font-medium">{{ $subject->teacher->user->name }}</div>
                 </div>
+            </div>
             @endforeach
+        </div>
+        
+        <div class="w-full mt-8">
+            <h4 class="text-gray-900 fw-bolder fs-2 mb-5">Subject List</h4>
+            <div>
+                <div class="table-responsive">
+                    <table class="table table-bordered border-bottom datatable-new">
+                        <thead>
+                            <tr>
+                                <th class="sr-col">Sr. No.</th>
+                                <th>Code</th>
+                                <th>Subject</th>
+                                <th>Teacher</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (count($teacher->subjects) > 0)
+                            <?php $i = '0' ?>
+                                @foreach ($teacher->subjects as $subject)
+                                <tr>
+                                    <td class="sr-col">{{ ++$i }}</td>
+                                    <td>{{ $subject->subject_code }}</td>
+                                    <td>{{ $subject->name }}</td>
+                                    <td>{{ $subject->teacher->user->name }}</td>
+                                </tr>
+                                @endforeach
+                            @else
+                                <tr><td colspan="5" class="no-record">No Record Found</td></tr>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div> <!-- ./END TEACHER -->
