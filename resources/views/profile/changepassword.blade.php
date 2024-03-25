@@ -1,7 +1,53 @@
 @extends('layouts.app')
-
+@section('pageTitle', $pageTitle)
 @section('content')
-    <div class="profile">
+
+<div class="add-page">
+    <div class="card">
+        <div class="card-header listing-header pt-5 border-0">
+            <span class="card-label fw-bolder fs-2">{{ $pageTitle }}</span>
+        </div>
+        <div class="card-body">
+            <form action="{{ route('profile.changepassword') }}" autocomplete="nope" method="POST" id="changepass-form">
+                @csrf
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="fw-bold fs-6 mb-2">Current Password<span class="text-danger">*</span></label>
+                            <input type="password" name="currentpassword" class="form-control form-control-solid" placeholder="Current Password">
+                            @if(session('msg_currentpassword'))
+                                <p class="text-red-500 text-xs italic">{{ session('msg_currentpassword') }}</p>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="fw-bold fs-6 mb-2">New Password<span class="text-danger">*</span></label>
+                            <input type="password" name="newpassword" id="newpassword" class="form-control form-control-solid" placeholder="New Password">
+                            @if(session('newpassword'))
+                                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="fw-bold fs-6 mb-2">Confirm New Password<span class="text-danger">*</span></label>
+                            <input type="password" name="newpassword_confirmation" class="form-control form-control-solid" placeholder="Confirm New Password">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="buttons-div">
+                            <button type="submit" title="Submit" class="btn btn-primary">Change Passsword</button>
+                            <a href="{{ route('home') }}" title="Back" class="btn btn-secondary">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    {{-- <div class="profile">
         <div class="sm:flex sm:items-center sm:justify-between mb-6">
             <div>
                 <h2 class="text-gray-700 uppercase font-bold">Profile</h2>
@@ -62,5 +108,27 @@
                 </div> 
             </form>        
         </div>
-    </div>
+    </div> --}}
+<script>
+    $("#changepass-form").validate({
+        errorClass: "invalid-input",
+        rules: {
+            currentpassword: { required: true, noSpace : true },
+            newpassword: { required: true },
+            newpassword_confirmation: { required: true, equalTo: '#newpassword' },
+        },
+        messages: {
+            currentpassword: "Please Enter Current Password",
+            newpassword: "Please Enter New Password",
+            newpassword_confirmation: {
+                required: "Please Enter Confirm New Password",
+                equalTo: "New Password and Confirm New Password Do Not Match"
+            },
+        },
+        submitHandler: function(form) {
+            showLoader()
+            form.submit();
+        }
+    });
+</script>
 @endsection

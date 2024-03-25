@@ -77,7 +77,8 @@ class HomeController extends Controller
 
     public function profileEdit() 
     {
-        return view('profile.edit');
+        $data['pageTitle'] = "Edit Profile";
+        return view('profile.edit', $data);
     }
 
     public function profileUpdate(Request $request) 
@@ -110,7 +111,8 @@ class HomeController extends Controller
      */
     public function changePasswordForm()
     {  
-        return view('profile.changepassword');
+        $data['pageTitle'] = "Change Password";
+        return view('profile.changepassword', $data);
     }
 
     public function changePassword(Request $request)
