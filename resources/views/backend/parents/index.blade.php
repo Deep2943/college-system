@@ -2,10 +2,10 @@
 @section('pageTitle', $pageTitle)
 @section('content')
 
-<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.min.js">
-<script src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="{{ asset('css/data-table.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/fixedheader.min.css') }}">
+<link rel="stylesheet" href="{{ asset('js/datatables-bootstrap5.min.js') }}">
+<script src="{{ asset('js/datatables.min.js') }}"></script>
 
 <div class="main-listing-page">
     <div class="card">
