@@ -394,3 +394,18 @@ $(window).resize(function() {
 		menuDrop();
 	}, 500);
 });
+
+function initializeDatatable(tableId){
+	new DataTable(tableId, {
+		bProcessing: true,
+		iDisplayLength: 10,
+		bDestroy: true,
+		fixedHeader: {
+			header: true,
+		},
+		sScrollY: "calc(100vh - 310px)",
+		sScrollX: "100%",
+		dom: 'frt<"bottom-content" i<"bottom"lp><"clear">>',
+		ordering: false
+	});
+};

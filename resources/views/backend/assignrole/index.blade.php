@@ -55,20 +55,9 @@
     </div>
 </div>
 
-<script>
+<script>  
     $(document).ready(function() {
-        let table = new DataTable('#assign-role-table', {
-            bProcessing: true,
-            iDisplayLength: 10,
-            bDestroy: true,
-            fixedHeader: {
-                header: true,
-            },
-            sScrollY: "calc(100vh - 310px)",
-            sScrollX: "100%",
-            dom: 'frt<"bottom-content" i<"bottom"lp><"clear">>',
-            ordering: false
-        });
-    } );
+        initializeDatatable('#assign-role-table');
+    });
 </script>
 @endsection

@@ -80,27 +80,7 @@
     })
 
     $(document).ready(function() {
-        let table = new DataTable('#teachers-table', {
-            bProcessing: true,
-            iDisplayLength: 10,
-            // searching: false,
-            bDestroy: true,
-            fixedHeader: {
-                header: true,
-            },
-            fnFooterCallback: function(nRow, aaData, iStart, iEnd, aiDisplay){
-                $('.dt-scroll-body').addClass('no-record');
-                if(aiDisplay.length > 6){
-                    $('.dt-scroll-body').removeClass('no-record');
-                }else{
-                    $('.dt-scroll-body').addClass('no-record');
-                }
-            },
-            sScrollY: "calc(100vh - 310px)",
-            sScrollX: "100%",
-            dom: 'frt<"bottom-content" i<"bottom"lp><"clear">>',
-            ordering: false
-        });
-    } );
+        initializeDatatable('#teachers-table');
+    });
 </script>
 @endpush
