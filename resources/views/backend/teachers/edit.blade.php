@@ -19,19 +19,19 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Name<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Name<span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control form-control-solid" placeholder="Name" value="{{ $teacher->user->name }}">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Email<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Email<span class="text-danger">*</span></label>
                             <input type="text" name="email" autocomplete="off" class="form-control form-control-solid" placeholder="Email" value="{{ $teacher->user->email }}">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Phone<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Phone<span class="text-danger">*</span></label>
                             <input type="text" name="phone" onkeyup="onlyNumber(this)" maxlength="10" class="form-control form-control-solid" placeholder="Phone" value="{{ $teacher->phone }}">
                         </div>
                     </div>
@@ -56,25 +56,25 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Date of Birth<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Date of Birth<span class="text-danger">*</span></label>
                             <input type="text" name="dateofbirth" id="datepicker-tc" value="{{ $teacher->dateofbirth }}" class="form-control form-control-solid" autocomplete="nope" placeholder="YYYY-MM-DD">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Current Address<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Current Address<span class="text-danger">*</span></label>
                             <textarea name="current_address" rows="3" class="form-control form-control-solid" placeholder="Current Address">{{ $teacher->current_address }}</textarea>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Permanent Address<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Permanent Address<span class="text-danger">*</span></label>
                             <textarea name="permanent_address" rows="3" class="form-control form-control-solid" placeholder="Permanent Address">{{ $teacher->permanent_address }}</textarea>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Picture</label>
+                            <label class="fw-bolder fs-6 mb-2">Picture</label>
                             <input type="file" name="profile_picture" class="form-control form-control-solid" placeholder="YYYY-MM-DD">
                             <label id="profile_picture-error" class="invalid-input" for="profile_picture" style="display: none"></label>
                         </div>
@@ -131,6 +131,12 @@
             ignoreReadonly: true,
             viewMode: 'days',
             format: 'YYYY-MM-DD',
+            showClose: true,
+            showClear: true,
+            icons: {
+                close: 'fa fa-close',
+                clear: 'fa fa-trash'
+            }
         });
     })
 </script>

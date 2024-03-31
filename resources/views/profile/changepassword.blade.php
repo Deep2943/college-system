@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Current Password<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Current Password<span class="text-danger">*</span></label>
                             <input type="password" name="currentpassword" class="form-control form-control-solid" placeholder="Current Password">
                             @if(session('msg_currentpassword'))
                                 <p class="text-red-500 text-xs italic">{{ session('msg_currentpassword') }}</p>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">New Password<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">New Password<span class="text-danger">*</span></label>
                             <input type="password" name="newpassword" id="newpassword" class="form-control form-control-solid" placeholder="New Password">
                             @if(session('newpassword'))
                                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Confirm New Password<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Confirm New Password<span class="text-danger">*</span></label>
                             <input type="password" name="newpassword_confirmation" class="form-control form-control-solid" placeholder="Confirm New Password">
                         </div>
                     </div>

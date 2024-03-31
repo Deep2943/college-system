@@ -13,19 +13,19 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Subject Name<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Subject Name<span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control form-control-solid" placeholder="Subject Name" value="{{ $subject->name }}">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Subject Code<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Subject Code<span class="text-danger">*</span></label>
                             <input type="text" name="subject_code" onkeyup="onlyNumber(this)" class="form-control form-control-solid" placeholder="Subject Code" value="{{ $subject->subject_code }}">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Assign Teacher<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Assign Teacher<span class="text-danger">*</span></label>
                             <select class="form-select form-select-solid" name="teacher_id">
                                 <option value="">Select</option>
                                 @foreach ($teachers as $teacher)
@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Subject Description<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Subject Description<span class="text-danger">*</span></label>
                             <textarea name="description" rows="3" class="form-control form-control-solid" placeholder="Subject Description">{{ $subject->description }}</textarea>
                         </div>
                     </div>

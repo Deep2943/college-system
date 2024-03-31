@@ -882,7 +882,7 @@ $(document).ready(function() {
 });
 $(window).resize(function() {
 	setTimeout(function() {
-		console.log("resized to =>", $(window).innerWidth());
+		// console.log("resized to =>", $(window).innerWidth());
 		menuDrop();
 	}, 500);
 });

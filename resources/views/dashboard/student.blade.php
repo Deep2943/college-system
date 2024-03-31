@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                             <div class="row mb-5 w-100">
-                                <label class="col-lg-5 fw-bold fs-6 text-muted">Student Parent:</label>
+                                <label class="col-lg-5 fw-bold fs-6 text-muted">Parent Name:</label>
                                 <div class="col-lg-7">
                                     <span class="fw-bold text-capitalize fs-6 text-gray-600">{{ $student->parent->user->name }}</span>
                                 </div>

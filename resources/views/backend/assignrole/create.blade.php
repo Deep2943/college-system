@@ -13,26 +13,26 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Name<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Name<span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control form-control-solid" placeholder="Name">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Email<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Email<span class="text-danger">*</span></label>
                             <input type="text" name="email" class="form-control form-control-solid" placeholder="Email">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Password<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Password<span class="text-danger">*</span></label>
                             <input type="password" name="password" autocomplete="cc-number" minlength="8" class="form-control form-control-solid" placeholder="Password">
                             <div class="form-text">Your Password Must Be Minimum 8 Characters Long</div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Assign Role<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Assign Role<span class="text-danger">*</span></label>
                             <select class="form-select form-select-solid" name="role">
                                 <option value="">Select</option>
                                 @foreach ($roles as $role)

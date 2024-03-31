@@ -12,26 +12,26 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Name<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Name<span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control form-control-solid" placeholder="Name">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Email<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Email<span class="text-danger">*</span></label>
                             <input type="text" name="email" autocomplete="off" class="form-control form-control-solid" placeholder="Email">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Password<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Password<span class="text-danger">*</span></label>
                             <input type="password" name="password" autocomplete="cc-number" minlength="8" class="form-control form-control-solid" placeholder="Password">
                             <div class="form-text">Your Password Must Be Minimum 8 Characters Long</div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Phone<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Phone<span class="text-danger">*</span></label>
                             <input type="text" name="phone" onkeyup="onlyNumber(this)" maxlength="10" class="form-control form-control-solid" placeholder="Phone">
                         </div>
                     </div>
@@ -52,29 +52,30 @@
                                     <label for="other" class="fw-bold fs-6 ml-2">Other</label>
                                 </span>
                             </div>
+                            <label id="gender-error" class="invalid-input" for="gender" style="display: none"></label>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Date of Birth<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Date of Birth<span class="text-danger">*</span></label>
                             <input type="text" name="dateofbirth" id="datepicker-tc" class="form-control form-control-solid" autocomplete="nope" placeholder="YYYY-MM-DD">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Current Address<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Current Address<span class="text-danger">*</span></label>
                             <textarea name="current_address" rows="3" class="form-control form-control-solid" placeholder="Current Address"></textarea>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Permanent Address<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Permanent Address<span class="text-danger">*</span></label>
                             <textarea name="permanent_address" rows="3" class="form-control form-control-solid" placeholder="Permanent Address"></textarea>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Picture<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Picture<span class="text-danger">*</span></label>
                             <input type="file" name="profile_picture" class="form-control form-control-solid" placeholder="YYYY-MM-DD">
                             <label id="profile_picture-error" class="invalid-input" for="profile_picture" style="display: none"></label>
                         </div>
@@ -133,6 +134,12 @@
             ignoreReadonly: true,
             viewMode: 'days',
             format: 'YYYY-MM-DD',
+            showClose: true,
+            showClear: true,
+            icons: {
+                close: 'fa fa-close',
+                clear: 'fa fa-trash'
+            }
         });
     })
 </script>

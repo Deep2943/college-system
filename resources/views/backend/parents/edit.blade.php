@@ -18,19 +18,19 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Name<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Name<span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control form-control-solid" placeholder="Name" value="{{ $parent->user->name }}">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Email<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Email<span class="text-danger">*</span></label>
                             <input type="text" name="email" autocomplete="off" class="form-control form-control-solid" placeholder="Email" value="{{ $parent->user->email }}">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Phone<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Phone<span class="text-danger">*</span></label>
                             <input type="text" name="phone" onkeyup="onlyNumber(this)" maxlength="10" class="form-control form-control-solid" placeholder="Phone" value="{{ $parent->phone }}">
                         </div>
                     </div>
@@ -55,19 +55,19 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Current Address<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Current Address<span class="text-danger">*</span></label>
                             <textarea name="current_address" rows="3" class="form-control form-control-solid" placeholder="Current Address">{{ $parent->current_address }}</textarea>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Permanent Address<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Permanent Address<span class="text-danger">*</span></label>
                             <textarea name="permanent_address" rows="3" class="form-control form-control-solid" placeholder="Permanent Address">{{ $parent->permanent_address }}</textarea>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Picture</label>
+                            <label class="fw-bolder fs-6 mb-2">Picture</label>
                             <input type="file" name="profile_picture" class="form-control form-control-solid" placeholder="YYYY-MM-DD">
                             <label id="profile_picture-error" class="invalid-input" for="profile_picture" style="display: none"></label>
                         </div>

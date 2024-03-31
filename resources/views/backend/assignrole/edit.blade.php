@@ -14,19 +14,19 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Name<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Name<span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control form-control-solid" placeholder="Name" value="{{ $user->name }}">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Email<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Email<span class="text-danger">*</span></label>
                             <input type="text" name="email" autocomplete="off" class="form-control form-control-solid" placeholder="Email" value="{{ $user->email }}">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Assign Role<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Assign Role<span class="text-danger">*</span></label>
                             <select class="form-select form-select-solid" name="selectedrole">
                                 <option value="">Select</option>
                                 @foreach ($roles as $role)

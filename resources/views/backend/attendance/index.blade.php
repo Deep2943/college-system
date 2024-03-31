@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Month<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Month<span class="text-danger">*</span></label>
                             <select class="form-select form-select-solid" name="month">
                                 <option value="">Select</option>
                                 @foreach ($months as $month => $values)
@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-lg-3 pt-8">
                         <div class="form-group">
-                            <button type="submit" title="Submit" class="btn btn-primary">Generate</button>
+                            <button type="submit" title="Generate" class="btn btn-primary">Generate</button>
                             <a href="{{ route('attendance.index') }}" class="btn btn-secondary">Reset</a>
                         </div>
                     </div>

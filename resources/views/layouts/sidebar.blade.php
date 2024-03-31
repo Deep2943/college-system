@@ -66,7 +66,7 @@
                                     <span class="menu-icon">
                                         <span class="svg-icon svg-icon-2">  <svg class="h-4 w-4 fill-current" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="id-badge" class="svg-inline--fa fa-id-badge fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M336 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM144 32h96c8.8 0 16 7.2 16 16s-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16s7.2-16 16-16zm48 128c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zm112 236.8c0 10.6-10 19.2-22.4 19.2H102.4C90 416 80 407.4 80 396.8v-19.2c0-31.8 30.1-57.6 67.2-57.6h5c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h5c37.1 0 67.2 25.8 67.2 57.6v19.2z"></path></svg></span>
                                     </span>
-                                    <span class="menu-title">Attendance</span>
+                                    <span class="menu-title">Student Attendance</span>
                                 </a>
                             </div>
                             <div class="menu-item">
@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div class="aside-footer flex-column-auto py-5" id="kt_aside_footer">
-                    <div class="btn btn-custom btn-primary w-100">
+                    <div class="btn btn-custom btn-primary w-100 cursor-auto">
                         <span class="btn-label">© {{ date('Y') }} {{ config('constants.SITE_TITLE') }}</span>
                     </div>
                 </div>

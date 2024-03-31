@@ -19,19 +19,19 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Name<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Name<span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control form-control-solid" placeholder="Name" value="{{ auth()->user()->name }}">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Email<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Email<span class="text-danger">*</span></label>
                             <input type="text" name="email" autocomplete="off" class="form-control form-control-solid" placeholder="Email" value="{{ auth()->user()->email }}">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Picture</label>
+                            <label class="fw-bolder fs-6 mb-2">Picture</label>
                             <input type="file" name="profile_picture" class="form-control form-control-solid">
                             <label id="profile_picture-error" class="invalid-input" for="profile_picture" style="display: none"></label>
                         </div>

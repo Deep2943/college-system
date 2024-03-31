@@ -17,7 +17,7 @@ class AttendanceController extends Controller
      */
     public function index()
     {
-        $data['pageTitle'] = "Attendance";
+        $data['pageTitle'] = "Student Attendance";
         $months = Attendance::select('attendence_date')
                             ->orderBy('attendence_date')
                             ->get()

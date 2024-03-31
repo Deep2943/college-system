@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Permission Name<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Permission Name<span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control form-control-solid" placeholder="Permission Name">
                         </div>
                     </div>

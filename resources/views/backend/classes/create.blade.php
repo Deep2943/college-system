@@ -13,19 +13,19 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Class Name<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Class Name<span class="text-danger">*</span></label>
                             <input type="text" name="class_name" class="form-control form-control-solid" placeholder="Class Name">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Class Numeric<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Class Numeric<span class="text-danger">*</span></label>
                             <input type="text" name="class_numeric" onkeyup="onlyNumber(this)" class="form-control form-control-solid" placeholder="Class Numeric">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Assign Teacher<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Assign Teacher<span class="text-danger">*</span></label>
                             <select class="form-select form-select-solid" name="teacher_id">
                                 <option value="">Select</option>
                                 @foreach ($teachers as $teacher)
@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Class Description<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-2">Class Description<span class="text-danger">*</span></label>
                             <textarea name="class_description" rows="3" class="form-control form-control-solid" placeholder="Class Description"></textarea>
                         </div>
                     </div>

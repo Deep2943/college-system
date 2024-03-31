@@ -12,12 +12,12 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-2">Subjects</label>
+                            <label class="fw-bolder fs-6 mb-2">Subjects</label>
                             <div class="checkbox-list">
                                 @foreach ($subjects as $subject)
                                     <div class="pb-4 custom-checkbox border-bottom pt-4">
                                         <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
-                                            <span class="form-check-label text-gray-700 fs-6 fw-bold ms-0 me-2">{{ $subject->name }}</span>
+                                            <span class="form-check-label text-primary fs-6 fw-bold ms-0 me-2">{{ $subject->name }}</span>
                                             <input class="form-check-input" name="selectedsubjects[]" type="checkbox" value="{{ $subject->id }}"
                                                 @foreach ($assigned->subjects as $item)
                                                     {{ ($item->id === $subject->id) ? 'checked' : '' }}
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <label class="fw-bold fs-6 mb-2">Students</label>
+                        <label class="fw-bolder fs-6 mb-2">Students</label>
                         <div class="table-responsive">
                             <table class="table table-bordered border-bottom datatable-new">
                                 <thead>
