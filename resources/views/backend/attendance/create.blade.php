@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('pageTitle', $pageTitle)
 @section('content')
     <div class="create">
 
@@ -30,14 +30,16 @@
 
             <div class="w-full px-6 py-6">
                 <div class="flex items-center bg-gray-200 rounded-tl rounded-tr">
+                    <div class="w-1/12 text-left text-gray-600 py-2 px-4 font-semibold">Sr. No.</div>
                     <div class="w-4/12 text-left text-gray-600 py-2 px-4 font-semibold">Name</div>
                     <div class="w-3/12 text-left text-gray-600 py-2 px-4 font-semibold">Roll</div>
-                    <div class="w-5/12 text-right text-gray-600 py-2 px-4 font-semibold">Attendence</div>
+                    <div class="w-5/12 text-right text-gray-600 py-2 px-4 font-semibold">Attendance</div>
                 </div>
                 <form action="{{ route('teacher.attendance.store') }}" method="POST">
                     @foreach ($class->students as $student)
                         <div class="flex items-center justify-between border border-gray-200">
                             @csrf
+                            <div class="w-1/12 text-sm text-left text-gray-600 py-2 px-4 font-semibold">{{ ++$i }}</div>
                             <div class="w-4/12 text-sm text-left text-gray-600 py-2 px-4 font-semibold">{{ $student->user->name }}</div>
                             <div class="w-3/12 text-sm text-left text-gray-600 py-2 px-4 font-semibold">{{ $student->roll_number }}</div>
                             <div class="w-5/12 text-sm text-right py-2 px-4 flex items-center justify-end">

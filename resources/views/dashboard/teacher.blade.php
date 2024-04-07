@@ -31,7 +31,7 @@
 <hr>
 <div class="w-full block mt-8">
     <div class="flex flex-wrap sm:flex-no-wrap justify-between">
-        <div class="row">
+        <div class="row w-100">
             <div class="col-lg-12">
                 <h4 class="text-gray-900 fw-bolder fs-2 mb-5">Class List</h4>
             </div>
@@ -40,7 +40,7 @@
                 <div class="card mb-5 shadow">
                     <div class="card-body d-flex align-items-center justify-content-center flex-column gap-3">
                         <h4 class="text-gray-900 fw-bolder fs-4 text-center">{{ $class->class_name }}</h4>
-                        <a href="{{ route('teacher.attendance.create',$class->id) }}" class="btn btn-sm btn-primary">Attendence</a>
+                        <a href="{{ route('teacher.attendance.create',$class->id) }}" class="btn btn-sm btn-primary">Attendance</a>
                     </div>
                 </div>
             </div>

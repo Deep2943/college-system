@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="fw-bold fs-6 mb-5">Gender<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6 mb-5">Gender<span class="text-danger">*</span></label>
                             <div class="d-flex flex-wrap gap-2">
                                 <span class="form-check form-check-custom form-check-solid">
                                     <input class="form-check-input" type="radio" id="male" name="gender" value="male" />

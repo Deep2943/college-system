@@ -22,7 +22,7 @@ class StudentController extends Controller
     {
         $data['pageTitle'] = "Students";
         $data['i'] = "0";
-        $students = Student::with('class')->latest()->paginate(10);
+        $students = Student::with('class')->latest()->paginate(100);
 
         return view('backend.students.index', compact('students'), $data);
     }

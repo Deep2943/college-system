@@ -58,9 +58,11 @@ class AttendanceController extends Controller
 
     public function createByTeacher($classid)
     {
+        $data['pageTitle'] = "Attendance";
+        $data['i'] = "0";
         $class = Grade::with(['students','subjects','teacher'])->findOrFail($classid);
 
-        return view('backend.attendance.create', compact('class'));
+        return view('backend.attendance.create', compact('class'), $data);
     }
 
     /**

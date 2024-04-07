@@ -80,6 +80,7 @@ class RolePermissionController extends Controller
         $request->validate([
             'name'	=> 'required|string|max:255|unique:permissions'
         ]);
+        $data['pageTitle'] = "Add Permission";
 
         $permission = Permission::create(['name' => $request->name]);
         $permission->assignRole($request->selectedroles);
@@ -87,7 +88,7 @@ class RolePermissionController extends Controller
         $roles = Role::latest()->get();
         $permissions = Permission::latest()->get();
 
-        return view('backend.permissions.create', compact('roles','permissions'));
+        return view('backend.permissions.create', compact('roles','permissions'), $data);
     }
 
     public function editPermission($id)

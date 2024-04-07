@@ -19,7 +19,7 @@ class SubjectController extends Controller
     {
         $data['pageTitle'] = "Subjects";
         $data['i'] = 0;
-        $subjects = Subject::with('teacher')->latest()->paginate(10);
+        $subjects = Subject::with('teacher')->latest()->paginate(100);
         
         return view('backend.subjects.index', compact('subjects'), $data);
     }

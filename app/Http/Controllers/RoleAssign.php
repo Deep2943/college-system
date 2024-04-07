@@ -14,7 +14,7 @@ class RoleAssign extends Controller
     {
         $data['pageTitle'] = "Assign Role";
         $data['i'] = "0";
-        $users = User::with('roles')->latest()->paginate(10);
+        $users = User::with('roles')->latest()->paginate(200);
 
         return view('backend.assignrole.index', compact('users'), $data);
     }

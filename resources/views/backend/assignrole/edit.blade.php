@@ -58,7 +58,7 @@
         rules: {
             name: { required: true, noSpace : true },
             email: { required: true, email_regex: true },
-            role: { required: true },
+            selectedrole: { required: true },
         },
         messages: {
             name: "Please Enter Name",
@@ -66,7 +66,7 @@
                 required: "Please Enter Email",
                 email_regex: "Please Enter Valid Email"
             },
-            role: "Please Select Assign Role",
+            selectedrole: "Please Select Assign Role",
         },
         submitHandler: function(form) {
             showLoader()

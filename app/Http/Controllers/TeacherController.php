@@ -19,7 +19,7 @@ class TeacherController extends Controller
     {
         $data['pageTitle'] = "Teachers";
         $data['i'] = 0;
-        $teachers = Teacher::with('user')->latest()->paginate(10);
+        $teachers = Teacher::with('user')->latest()->paginate(100);
 
         return view('backend.teachers.index', compact('teachers'), $data);
     }

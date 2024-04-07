@@ -64,11 +64,11 @@
                             <form id="login" method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class=" form-group col-md-12 form-group ">
-                                    <label class="form-label" for="email">Email:</label>
+                                    <label class="form-label" for="email">Email<span class="text-danger">*</span></label>
                                     <input id="email" class="form-input form-control" type="email" placeholder="Email" name="email" autofocus>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label class="form-label" for="password">Password:</label>
+                                    <label class="form-label" for="password">Password<span class="text-danger">*</span></label>
                                     <input id="password" class="form-input form-control" autocomplete="new-password" placeholder="Password" type="password" name="password">
                                 </div>
                                 <div class="col-md-12">

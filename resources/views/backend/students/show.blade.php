@@ -25,7 +25,7 @@
                                 <!--begin::Name-->
                                 <div class="d-flex align-items-center mb-2">
                                     <div class="text-gray-900 fs-2 fw-bolder me-1">{{ $student->user->name }}</div>
-                                    <div class="btn btn-sm btn-light-primary fw-bolder ms-2 fs-7 py-1 px-3">{{ $student->roll_number }}</div>
+                                    <div class="bg-light-primary text-primary fw-bolder ms-2 fs-7 py-1 px-3">{{ $student->roll_number }}</div>
                                 </div>
                                 <!--end::Name-->
                                 <!--begin::Info-->

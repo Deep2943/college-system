@@ -20,7 +20,7 @@
                     <div class="col-lg-8"></div>
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label class="fw-bold fs-6">Permissions<span class="text-danger">*</span></label>
+                            <label class="fw-bolder fs-6">Permissions<span class="text-danger">*</span></label>
                             <div class="checkbox-list">
                                 @foreach ($permissions as $permission)
                                     <div class="pb-4 custom-checkbox border-bottom pt-4">
