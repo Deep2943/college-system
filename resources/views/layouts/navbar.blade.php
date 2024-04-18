@@ -1,6 +1,7 @@
 @auth
 <div class="px-4 sm:px-6 py-3 h-16 top-bar">
-    <div class="relative w-100 d-flex justify-content-end">
+    <div class="relative w-100 d-flex justify-content-between">
+        <h5 class="clg-heading"><i class="fi fi-rr-graduation-cap icon"></i> College Management System</h5>
         <button type="button" class="flex items-center cursor-pointer" id="opennavdropdown" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
             <img class="w-8 h-8 rounded-full mr-2" src="{{ asset('images/profile/' . auth()->user()->profile_picture) }}" alt="Avatar">
             <p class="user-name">{{ auth()->user()->name }}</p>

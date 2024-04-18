@@ -78,6 +78,8 @@ body{font-family: "Poppins", sans-serif;background: #f5f8fa;}
 .checkbox-list .custom-checkbox:nth-last-child(1){border-bottom: 0 !important;}
 .table .no-record{text-align: center !important;}
 .dt-scroll-body{height: auto !important;min-height: auto !important;}
+.clg-heading{margin-left: 18%;font-size: 21px;font-weight: 700;color: #000;display: flex;align-items: center;gap: 0 10px;}
+.clg-heading .icon{display: flex;font-size: 31px;color: var(--primary-color);}
 @media (max-width:768px) {
   .main-listing-page .bottom-content{flex-direction: column;gap: 10px;align-items: flex-start;}
   .main-listing-page .bottom{flex-direction: column;gap: 10px;align-items: flex-start;}
